@@ -5,6 +5,8 @@
 [![NPM License](https://img.shields.io/npm/l/read-env-value)](https://github.com/node-modules/read-env-value/blob/master/LICENSE)
 [![codecov](https://codecov.io/gh/node-modules/read-env-value/branch/master/graph/badge.svg)](https://codecov.io/gh/node-modules/read-env-value)
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/node-modules/read-env-value/ci.yml?branch=master)](https://github.com/node-modules/read-env-value/actions/workflows/ci.yml?query=branch%3Amaster)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com)
+![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/node-modules/read-env-value)
 
 Read env with default value
 
