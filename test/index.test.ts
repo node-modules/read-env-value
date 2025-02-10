@@ -32,20 +32,25 @@ test('should return env value if env is set to empty string', () => {
   assert.equal(env('TEST_ENV_STRING', 'string', 'default string'), 'default string');
   assert.equal(env('TEST_ENV_BOOLEAN', 'boolean', true), true);
   assert.equal(env('TEST_ENV_BOOLEAN', 'boolean', false), false);
+  assert.equal(env('TEST_ENV_BOOLEAN', 'boolean'), undefined);
   assert.equal(env('TEST_ENV_NUMBER', 'number', 3306), 3306);
   assert.equal(env('TEST_ENV_NUMBER', 'number', 0), 0);
   assert.equal(env('TEST_ENV_NUMBER', 'number', -123), -123);
+  assert.equal(env('TEST_ENV_NUMBER', 'number'), undefined);
 
   mock(process.env, 'TEST_ENV_STRING', '    ');
   mock(process.env, 'TEST_ENV_BOOLEAN', '  \t  ');
   mock(process.env, 'TEST_ENV_NUMBER', '   \t\t\t  ');
 
   assert.equal(env('TEST_ENV_STRING', 'string', ''), '');
+  assert.equal(env('TEST_ENV_STRING', 'string'), undefined);
   assert.equal(env('TEST_ENV_STRING', 'string', 'default string'), 'default string');
   assert.equal(env('TEST_ENV_BOOLEAN', 'boolean', true), true);
   assert.equal(env('TEST_ENV_BOOLEAN', 'boolean', false), false);
+  assert.equal(env('TEST_ENV_BOOLEAN', 'boolean'), undefined);
   assert.equal(env('TEST_ENV_NUMBER', 'number', 3306), 3306);
   assert.equal(env('TEST_ENV_NUMBER', 'number', 0), 0);
+  assert.equal(env('TEST_ENV_NUMBER', 'number'), undefined);
 });
 
 test('should throw error if env is set to invalid value', () => {
