@@ -1,0 +1,72 @@
+{
+  "name": "read-env-value",
+  "version": "1.0.0",
+  "description": "Read env with default value",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/node-modules/read-env-value.git"
+  },
+  "keywords": [
+    "env",
+    "environment"
+  ],
+  "author": "fengmk2",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/node-modules/read-env-value/issues"
+  },
+  "homepage": "https://github.com/node-modules/read-env-value#readme",
+  "engines": {
+    "node": ">= 20.0.0"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.17.3",
+    "@eggjs/tsconfig": "1",
+    "@types/mocha": "10",
+    "@types/node": "22",
+    "@vitest/coverage-v8": "^3.0.5",
+    "eslint": "8",
+    "eslint-config-egg": "14",
+    "mm": "^4.0.2",
+    "tshy": "3",
+    "tshy-after": "1",
+    "typescript": "5",
+    "vitest": "^3.0.5"
+  },
+  "scripts": {
+    "lint": "eslint --cache src test --ext .ts",
+    "pretest": "npm run lint -- --fix",
+    "test": "vitest",
+    "preci": "npm run lint",
+    "ci": "vitest run --coverage",
+    "postci": "npm run prepublishOnly",
+    "prepublishOnly": "tshy && tshy-after && attw --pack"
+  },
+  "type": "module",
+  "tshy": {
+    "exports": {
+      ".": "./src/index.ts",
+      "./package.json": "./package.json"
+    }
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/commonjs/index.d.ts",
+        "default": "./dist/commonjs/index.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "types": "./dist/commonjs/index.d.ts",
+  "main": "./dist/commonjs/index.js",
+  "module": "./dist/esm/index.js"
+}
