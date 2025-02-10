@@ -22,7 +22,6 @@
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.17.3",
     "@eggjs/tsconfig": "1",
-    "@types/mocha": "10",
     "@types/node": "22",
     "@vitest/coverage-v8": "^3.0.5",
     "eslint": "8",
