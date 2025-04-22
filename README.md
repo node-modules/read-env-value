@@ -1,5 +1,7 @@
 # read-env-value
 
+[![JSR](https://jsr.io/badges/@eggjs/read-env-value)](https://jsr.io/@eggjs/read-env-value)
+[![JSR Score](https://jsr.io/badges/@eggjs/read-env-value/score)](https://jsr.io/@eggjs/read-env-value)
 [![NPM Version](https://img.shields.io/npm/v/read-env-value)](https://www.npmjs.com/package/read-env-value)
 [![NPM Downloads](https://img.shields.io/npm/dm/read-env-value)](https://www.npmjs.com/package/read-env-value)
 [![NPM License](https://img.shields.io/npm/l/read-env-value)](https://github.com/node-modules/read-env-value/blob/master/LICENSE)
