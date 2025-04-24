@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/node-modules/read-env-value/compare/v1.0.0...v1.0.1) (2025-04-24)
+
+
+### Bug Fixes
+
+* Fixed 0 or false misjudgments ([#4](https://github.com/node-modules/read-env-value/issues/4)) ([dc46c01](https://github.com/node-modules/read-env-value/commit/dc46c013bb342e7331b8fe626dd5a2763f2cb583))
+
 ## 1.0.0 (2025-02-10)
 
 
