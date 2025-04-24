@@ -89,6 +89,21 @@ test('should work with boolean value', () => {
 
   mock(process.env, 'TEST_ENV_BOOLEAN', '0');
   assert.equal(env('TEST_ENV_BOOLEAN', 'boolean', true), false);
+
+  mock(process.env, 'TEST_ENV_BOOLEAN', 'yes');
+  assert.equal(env('TEST_ENV_BOOLEAN', 'boolean', true), true);
+
+  mock(process.env, 'TEST_ENV_BOOLEAN', 'no');
+  assert.equal(env('TEST_ENV_BOOLEAN', 'boolean', false), false);
+
+  mock(process.env, 'TEST_ENV_BOOLEAN', false);
+  assert.equal(env('TEST_ENV_BOOLEAN', 'boolean', false), false);
+
+  mock(process.env, 'TEST_ENV_BOOLEAN', 0);
+  assert.equal(env('TEST_ENV_BOOLEAN', 'boolean', false), false);
+
+  mock(process.env, 'TEST_ENV_BOOLEAN', 0);
+  assert.equal(env('TEST_ENV_BOOLEAN', 'boolean', false), false);
 });
 
 test('should work with number value', () => {
