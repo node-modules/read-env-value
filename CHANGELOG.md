@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/node-modules/read-env-value/compare/v1.0.1...v1.1.0) (2025-05-10)
+
+
+### Features
+
+* use oxlint ([#5](https://github.com/node-modules/read-env-value/issues/5)) ([235acdf](https://github.com/node-modules/read-env-value/commit/235acdfaacb1e69b2a896c11ab0e2de5e5abc8fa))
+
 ## [1.0.1](https://github.com/node-modules/read-env-value/compare/v1.0.0...v1.0.1) (2025-04-24)
 
 

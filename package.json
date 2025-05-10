@@ -1,6 +1,6 @@
 {
   "name": "read-env-value",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Read env with default value",
   "repository": {
     "type": "git",
