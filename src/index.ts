@@ -1,11 +1,11 @@
 export type ValueType = 'string' | 'boolean' | 'number';
 export type DefaultValue = string | boolean | number | undefined;
 
-type TypeMap<D> = {
-  'string': D extends undefined ? string | undefined : string;
-  'boolean': D extends undefined ? boolean | undefined : boolean;
-  'number': D extends undefined ? number | undefined : number;
-};
+interface TypeMap<D> {
+  string: D extends undefined ? string | undefined : string;
+  boolean: D extends undefined ? boolean | undefined : boolean;
+  number: D extends undefined ? number | undefined : number;
+}
 
 type EnvReturn<V extends ValueType, D extends DefaultValue> = TypeMap<D>[V];
 
@@ -19,7 +19,11 @@ export class EnvError extends Error {
   }
 }
 
-export function env<V extends ValueType, D extends DefaultValue>(key: string, valueType: V, defaultValue?: D): EnvReturn<V, D> {
+export function env<V extends ValueType, D extends DefaultValue>(
+  key: string,
+  valueType: V,
+  defaultValue?: D
+): EnvReturn<V, D> {
   let value = process.env[key];
   if (typeof value === 'string') {
     value = value.trim();
@@ -42,7 +46,7 @@ export function env<V extends ValueType, D extends DefaultValue>(key: string, va
     } else {
       throw new EnvError(
         `Invalid boolean value: ${value} on process.env.${key}`,
-        'ERR_ENV_INVALID_BOOLEAN_VALUE',
+        'ERR_ENV_INVALID_BOOLEAN_VALUE'
       );
     }
     return booleanValue as EnvReturn<V, D>;
@@ -50,10 +54,10 @@ export function env<V extends ValueType, D extends DefaultValue>(key: string, va
 
   if (valueType === 'number') {
     const numberValue = Number(value);
-    if (isNaN(numberValue)) {
+    if (Number.isNaN(numberValue)) {
       throw new EnvError(
         `Invalid number value: ${value} on process.env.${key}`,
-        'ERR_ENV_INVALID_NUMBER_VALUE',
+        'ERR_ENV_INVALID_NUMBER_VALUE'
       );
     }
     return numberValue as EnvReturn<V, D>;
@@ -61,6 +65,6 @@ export function env<V extends ValueType, D extends DefaultValue>(key: string, va
 
   throw new EnvError(
     `Invalid value type: ${valueType}`,
-    'ERR_ENV_INVALID_VALUE_TYPE',
+    'ERR_ENV_INVALID_VALUE_TYPE'
   );
 }
