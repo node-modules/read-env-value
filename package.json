@@ -20,18 +20,18 @@
     "node": ">= 20.0.0"
   },
   "devDependencies": {
-    "@arethetypeswrong/cli": "^0.17.3",
-    "@eggjs/tsconfig": "1",
+    "@arethetypeswrong/cli": "^0.18.1",
+    "@eggjs/tsconfig": "2",
     "@types/node": "22",
-    "@vitest/coverage-v8": "^3.0.5",
-    "husky": "^9.1.7",
+    "@vitest/coverage-v8": "3",
+    "husky": "9",
+    "mm": "4",
     "oxlint": "^0.16.10",
-    "prettier": "^3.5.3",
-    "mm": "^4.0.2",
+    "prettier": "3",
     "tshy": "3",
     "tshy-after": "1",
     "typescript": "5",
-    "vitest": "^3.0.5"
+    "vitest": "3"
   },
   "scripts": {
     "lint": "oxlint",
