@@ -17,30 +17,26 @@
   },
   "homepage": "https://github.com/node-modules/read-env-value#readme",
   "engines": {
-    "node": ">= 20.0.0"
+    "node": ">= 22.17.0"
   },
   "devDependencies": {
-    "@arethetypeswrong/cli": "^0.18.1",
-    "@eggjs/tsconfig": "2",
-    "@types/node": "22",
-    "@vitest/coverage-v8": "3",
+    "@eggjs/tsconfig": "3",
+    "@types/node": "24",
+    "c8": "10",
     "husky": "9",
     "mm": "4",
-    "oxlint": "^0.16.10",
+    "oxlint": "1",
     "prettier": "3",
-    "tshy": "3",
-    "tshy-after": "1",
-    "typescript": "5",
-    "vitest": "3"
+    "typescript": "5"
   },
   "scripts": {
     "lint": "oxlint",
     "pretest": "npm run lint -- --fix",
-    "test": "vitest run",
+    "test": "node --test --experimental-strip-types",
     "preci": "npm run lint",
-    "ci": "vitest run --coverage",
+    "ci": "c8 -r html -r lcov -r text npm test",
     "postci": "npm run prepublishOnly",
-    "prepublishOnly": "tshy && tshy-after && attw --pack",
+    "prepublishOnly": "tsc -b --clean && tsc",
     "prepare": "husky"
   },
   "lint-staged": {
@@ -50,31 +46,11 @@
       "oxlint --fix"
     ]
   },
-  "type": "module",
-  "tshy": {
-    "exports": {
-      ".": "./src/index.ts",
-      "./package.json": "./package.json"
-    }
-  },
-  "exports": {
-    ".": {
-      "import": {
-        "types": "./dist/esm/index.d.ts",
-        "default": "./dist/esm/index.js"
-      },
-      "require": {
-        "types": "./dist/commonjs/index.d.ts",
-        "default": "./dist/commonjs/index.js"
-      }
-    },
-    "./package.json": "./package.json"
-  },
   "files": [
     "dist",
     "src"
   ],
-  "types": "./dist/commonjs/index.d.ts",
-  "main": "./dist/commonjs/index.js",
-  "module": "./dist/esm/index.js"
+  "type": "module",
+  "exports": "./dist/index.js",
+  "types": "./dist/index.d.ts"
 }

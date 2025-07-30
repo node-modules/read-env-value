@@ -1,9 +1,9 @@
 import assert from 'node:assert/strict';
+import { test, beforeEach } from 'node:test';
 
-import { test, beforeEach } from 'vitest';
 import { mock, restore } from 'mm';
 
-import { env, type ValueType } from '../src/index.js';
+import { env, EnvError, type ValueType } from '../src/index.ts';
 
 beforeEach(restore);
 
@@ -141,4 +141,11 @@ test('should work with number value', () => {
 
   mock(process.env, 'TEST_ENV_NUMBER', '0');
   assert.equal(env('TEST_ENV_NUMBER', 'number', 10), 0);
+});
+
+test('should create EnvError without code', () => {
+  const err = new EnvError('test');
+  assert.equal(err.code, 'READ_ENV_VALUE_ERROR');
+  assert.equal(err.message, 'test');
+  assert.equal(err.name, 'ReadEnvValueError');
 });
