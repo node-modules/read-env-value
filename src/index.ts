@@ -1,13 +1,16 @@
 export type ValueType = 'string' | 'boolean' | 'number';
 export type DefaultValue = string | boolean | number | undefined;
 
-interface TypeMap<D> {
-  string: D extends undefined ? string | undefined : string;
-  boolean: D extends undefined ? boolean | undefined : boolean;
-  number: D extends undefined ? number | undefined : number;
+interface TypeMap<Default> {
+  string: Default extends undefined ? string | undefined : string;
+  boolean: Default extends undefined ? boolean | undefined : boolean;
+  number: Default extends undefined ? number | undefined : number;
 }
 
-type EnvReturn<V extends ValueType, D extends DefaultValue> = TypeMap<D>[V];
+type EnvReturn<
+  Value extends ValueType,
+  Default extends DefaultValue,
+> = TypeMap<Default>[Value];
 
 export class EnvError extends Error {
   code: string;
@@ -19,21 +22,21 @@ export class EnvError extends Error {
   }
 }
 
-export function env<V extends ValueType, D extends DefaultValue>(
+export function env<Value extends ValueType, Default extends DefaultValue>(
   key: string,
-  valueType: V,
-  defaultValue?: D
-): EnvReturn<V, D> {
+  valueType: Value,
+  defaultValue?: Default
+): EnvReturn<Value, Default> {
   let value = process.env[key];
   if (typeof value === 'string') {
     value = value.trim();
   }
   if (undefined === value || value === '') {
-    return defaultValue as EnvReturn<V, D>;
+    return defaultValue as EnvReturn<Value, Default>;
   }
 
   if (valueType === 'string') {
-    return value as EnvReturn<V, D>;
+    return value as EnvReturn<Value, Default>;
   }
 
   if (valueType === 'boolean') {
@@ -49,7 +52,7 @@ export function env<V extends ValueType, D extends DefaultValue>(
         'ERR_ENV_INVALID_BOOLEAN_VALUE'
       );
     }
-    return booleanValue as EnvReturn<V, D>;
+    return booleanValue as EnvReturn<Value, Default>;
   }
 
   if (valueType === 'number') {
@@ -60,7 +63,7 @@ export function env<V extends ValueType, D extends DefaultValue>(
         'ERR_ENV_INVALID_NUMBER_VALUE'
       );
     }
-    return numberValue as EnvReturn<V, D>;
+    return numberValue as EnvReturn<Value, Default>;
   }
 
   throw new EnvError(
