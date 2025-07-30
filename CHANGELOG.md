@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/node-modules/read-env-value/compare/v1.1.0...v2.0.0) (2025-07-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* drop Node.js < 22.17.0 support
+
+### Features
+
+* esm only ([#6](https://github.com/node-modules/read-env-value/issues/6)) ([e7f4dad](https://github.com/node-modules/read-env-value/commit/e7f4dad3f465f87a587cd4bf3d6eadf0ea3fb7cc))
+
 ## [1.1.0](https://github.com/node-modules/read-env-value/compare/v1.0.1...v1.1.0) (2025-05-10)
 
 
