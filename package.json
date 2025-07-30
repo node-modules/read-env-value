@@ -32,7 +32,7 @@
   "scripts": {
     "lint": "oxlint",
     "pretest": "npm run lint -- --fix",
-    "test": "node --test",
+    "test": "node --test --experimental-strip-types",
     "preci": "npm run lint",
     "ci": "c8 -r html -r lcov -r text npm test",
     "postci": "npm run prepublishOnly",
