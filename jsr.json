@@ -1,5 +1,5 @@
 {
-  "name": "@eggjs/read-env-value",
+  "name": "@nm/read-env-value",
   "version": "2.0.1",
   "license": "MIT",
   "exports": "./src/index.ts"
