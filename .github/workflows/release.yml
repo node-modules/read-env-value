@@ -5,9 +5,26 @@ on:
     branches: [master]
 
 jobs:
-  release:
-    name: Node.js
+  release-to-npm:
+    name: NPM
     uses: node-modules/github-actions/.github/workflows/node-release.yml@master
     secrets:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+
+  release-to-jsr:
+    name: JSR
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      id-token: write
+
+    needs:
+      - release-to-npm
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Publish package
+        run: npx jsr publish
