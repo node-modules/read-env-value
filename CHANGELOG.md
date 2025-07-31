@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/node-modules/read-env-value/compare/v2.0.0...v2.0.1) (2025-07-31)
+
+
+### Bug Fixes
+
+* duel publish to npm and jsr ([7cd320e](https://github.com/node-modules/read-env-value/commit/7cd320e41039fe1c75d5667d240e13a52e2f4503))
+
 ## [2.0.0](https://github.com/node-modules/read-env-value/compare/v1.1.0...v2.0.0) (2025-07-30)
 
 
