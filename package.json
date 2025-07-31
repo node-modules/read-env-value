@@ -36,6 +36,7 @@
     "preci": "npm run lint",
     "ci": "c8 -r html -r lcov -r text npm test",
     "postci": "npm run prepublishOnly",
+    "postversion": "npx sync-npm-version-to-jsr && git add jsr.json",
     "prepublishOnly": "tsc -b --clean && tsc",
     "prepare": "husky"
   },
