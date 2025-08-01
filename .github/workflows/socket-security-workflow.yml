@@ -1,0 +1,31 @@
+name: socket-security-workflow
+run-name: Socket Security Github Action
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+jobs:
+  socket-security:
+    permissions:
+      contents: read # This is enough to clone the repo and read files
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Socket CLI
+        run: pip install socketsecurity --upgrade
+      - name: Run scan
+        env:
+          SOCKET_SECURITY_API_KEY: ${{ secrets.SOCKET_SECURITY_API_KEY }}
+          GH_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+          COMMIT_SHA: ${{ github.sha }} # Getting the commit SHA
+        run: |
+          socketcli --scm github --repo ${{ github.event.repository.name }} --branch "${{ github.ref_name }}" --default-branch --pr_number 0 --commit-sha "$COMMIT_SHA" --committer "$GITHUB_ACTOR" --commit_message "$COMMIT_MESSAGE" --target_path $GITHUB_WORKSPACE --disable-blocking
