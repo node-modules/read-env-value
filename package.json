@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/node-modules/read-env-value#readme",
   "engines": {
-    "node": ">= 22.17.0"
+    "node": ">= 22.18.0"
   },
   "devDependencies": {
     "@eggjs/tsconfig": "3",
@@ -32,7 +32,7 @@
   "scripts": {
     "lint": "oxlint",
     "pretest": "npm run lint -- --fix",
-    "test": "node --test --experimental-strip-types",
+    "test": "node --test",
     "preci": "npm run lint",
     "ci": "c8 -r html -r lcov -r text npm test",
     "postci": "npm run prepublishOnly",
