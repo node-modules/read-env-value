@@ -1,10 +1,10 @@
 # read-env-value
 
-[![JSR](https://jsr.io/badges/@nm/read-env-value)](https://jsr.io/@nm/read-env-value)
-[![JSR Score](https://jsr.io/badges/@nm/read-env-value/score)](https://jsr.io/@nm/read-env-value)
 [![NPM Version](https://img.shields.io/npm/v/read-env-value)](https://www.npmjs.com/package/read-env-value)
 [![NPM Downloads](https://img.shields.io/npm/dm/read-env-value)](https://www.npmjs.com/package/read-env-value)
 [![NPM License](https://img.shields.io/npm/l/read-env-value)](https://github.com/node-modules/read-env-value/blob/master/LICENSE)
+[![JSR](https://jsr.io/badges/@nm/read-env-value)](https://jsr.io/@nm/read-env-value)
+[![JSR Score](https://jsr.io/badges/@nm/read-env-value/score)](https://jsr.io/@nm/read-env-value)
 [![codecov](https://codecov.io/gh/node-modules/read-env-value/branch/master/graph/badge.svg)](https://codecov.io/gh/node-modules/read-env-value)
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/node-modules/read-env-value/ci.yml?branch=master)](https://github.com/node-modules/read-env-value/actions/workflows/ci.yml?query=branch%3Amaster)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com)
