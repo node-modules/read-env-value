@@ -1,5 +1,11 @@
 # Changelog
 
+## <small>2.0.2 (2025-08-08)</small>
+
+* fix: remove src on publish package (#9) ([4a2f39c](https://github.com/node-modules/read-env-value/commit/4a2f39c)), closes [#9](https://github.com/node-modules/read-env-value/issues/9)
+* test: remove experimental-strip-types flag (#8) ([983da2f](https://github.com/node-modules/read-env-value/commit/983da2f)), closes [#8](https://github.com/node-modules/read-env-value/issues/8)
+* chore: change jsr name to @nw/read-env-value ([fbbd50b](https://github.com/node-modules/read-env-value/commit/fbbd50b))
+
 ## [2.0.1](https://github.com/node-modules/read-env-value/compare/v2.0.0...v2.0.1) (2025-07-31)
 
 
